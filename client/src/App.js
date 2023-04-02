@@ -1,5 +1,6 @@
-import PostForm from "./compnent/postform";
-import Datalist from "./compnent/datalist";
+import PostForm from "./compnent/post/postform";
+import Datalist from "./compnent/get/datalist";
+import Postpage from "./compnent/postpage";
 import { Route, Routes } from "react-router-dom";
 
 function App() {
@@ -8,6 +9,7 @@ function App() {
       <Routes>
         <Route path="/" exact element={<Datalist />} />
         <Route path="/blogs" exact element={<PostForm />} />
+        <Route path="/blogs/:id" exact element={<Postpage />} />
       </Routes>
     </div>
   );

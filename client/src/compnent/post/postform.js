@@ -1,12 +1,13 @@
 import React, { useState } from "react";
 import axios from "axios";
 import "./postform.css";
-import Navigation from "./navigation";
+import Navigation from "../navigation";
 
 const PostForm = () => {
   const [title, setTitle] = useState("");
   const [content, setContent] = useState("");
   const [tags, setTags] = useState("");
+  const [Author, setauthor] = useState("");
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -14,6 +15,7 @@ const PostForm = () => {
     const post = {
       title: title,
       content: content,
+      author: Author,
       tags: tags,
     };
 
@@ -26,6 +28,7 @@ const PostForm = () => {
       setTitle("");
       setContent("");
       setTags("");
+      setauthor("");
     } catch (error) {
       console.error(error);
     }
@@ -65,6 +68,15 @@ const PostForm = () => {
           required
         />
         <br />
+
+        <label htmlFor="author">Author:</label>
+        <input
+          type="text"
+          id="tags"
+          value={Author}
+          onChange={(e) => setauthor(e.target.value)}
+          required
+        />
 
         <button type="submit">Create Post</button>
       </form>

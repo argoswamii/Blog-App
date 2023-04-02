@@ -11,18 +11,13 @@ const postSchema = new mongoose.Schema({
   },
   author: {
     type: String,
-    // required: true,
   },
+  comments: { type: String },
   createdAt: {
     type: Date,
     default: Date.now,
   },
-  tags: [
-    {
-      type: String,
-      required: true,
-    },
-  ],
+  tags: [String],
 });
 
 const Post = mongoose.model("Post", postSchema);
