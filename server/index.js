@@ -3,10 +3,13 @@ const app = express();
 const mongoose = require("mongoose");
 const port = process.env.port || 3000;
 const cors = require("cors");
+var bodyParser = require("body-parser");
 const route = require("./routes/blogroute.js");
 
 app.use(cors());
-app.use(express.json());
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json());
+// app.use(express.json());
 app.use("/blog", route);
 
 mongoose

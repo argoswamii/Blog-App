@@ -1,0 +1,28 @@
+.post-list-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.post-card {
+  width: 48%;
+  margin-bottom: 1.5rem;
+  padding: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 0.5rem;
+}
+
+.post-card h2 {
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.post-card p {
+  margin-bottom: 1rem;
+}
+
+@media screen and (max-width: 768px) {
+  .post-card {
+    width: 100%;
+  }
+}
