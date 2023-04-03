@@ -1,6 +1,6 @@
 import PostForm from "./compnent/post/postform";
 import Datalist from "./compnent/get/datalist";
-import Postpage from "./compnent/postpage";
+import Postpage from "./compnent/individualpost/postpage";
 import { Route, Routes } from "react-router-dom";
 
 function App() {

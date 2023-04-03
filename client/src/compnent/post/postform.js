@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
 import "./postform.css";
-import Navigation from "../navigation";
+import Navigation from "../Navbar/navigation";
 
 const PostForm = () => {
   const [title, setTitle] = useState("");
@@ -39,7 +39,7 @@ const PostForm = () => {
       <div>
         <Navigation />
       </div>
-      <form onSubmit={handleSubmit}>
+      <form className="form" onSubmit={handleSubmit}>
         <label htmlFor="title">Title:</label>
         <input
           type="text"

@@ -1,25 +1,34 @@
 .post-list-container {
+  margin-top: 20px;
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
+  justify-content: space-around;
 }
 
 .post-card {
-  width: 48%;
+  width: 40%;
   margin-bottom: 1.5rem;
   padding: 1rem;
   border: 1px solid #ccc;
   border-radius: 0.5rem;
-  background-color: antiquewhite;
+  background-color: #669bbc;
 }
-
+i {
+  display: block;
+}
 .post-card h2 {
   font-size: 1.5rem;
   margin-bottom: 0.5rem;
+  color: #ffffff;
 }
 
 .post-card p {
   margin-bottom: 1rem;
+}
+
+.author {
+  margin-top: 0%;
+  margin-bottom: 10px;
 }
 
 @media screen and (max-width: 768px) {

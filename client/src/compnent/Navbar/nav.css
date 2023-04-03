@@ -1,0 +1,14 @@
+.container {
+  display: flex;
+  max-width: 100%;
+  justify-content: space-around;
+  background-color: #264653;
+}
+
+.btn {
+  margin-top: 8px;
+  margin-bottom: 8px;
+  color: black;
+  background-color: antiquewhite;
+  display: inline-block;
+}
