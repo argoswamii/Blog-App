@@ -12,7 +12,7 @@ const postSchema = new mongoose.Schema({
   author: {
     type: String,
   },
-  comments: { type: String },
+  comment: { type: String },
   createdAt: {
     type: Date,
     default: Date.now,

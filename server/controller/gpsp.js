@@ -1,4 +1,3 @@
-const express = require("express");
 const Post = require("../models/Blog.js");
 
 //get post
@@ -23,7 +22,6 @@ exports.createPost = async (req, res) => {
     author,
     tags,
   });
-  console.log(`${newPost.title}`);
 
   try {
     await newPost.save();
@@ -46,6 +44,27 @@ exports.getPostById = async (req, res) => {
     }
 
     res.status(200).json(postblog);
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
+};
+
+// Update a post
+exports.updatePost = async (req, res) => {
+  const { id } = req.params;
+  const { comment } = req.body;
+
+  try {
+    const updatedPost = await Post.findByIdAndUpdate(
+      id,
+      { comment },
+      { new: true }
+    );
+    if (!updatedPost) {
+      return res.status(404).json({ message: "Post not found" });
+    }
+
+    res.status(200).json(updatedPost);
   } catch (error) {
     res.status(500).json({ message: error.message });
   }

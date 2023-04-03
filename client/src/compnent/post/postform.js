@@ -36,9 +36,7 @@ const PostForm = () => {
 
   return (
     <>
-      <div>
-        <Navigation />
-      </div>
+      <Navigation />
       <form className="form" onSubmit={handleSubmit}>
         <label htmlFor="title">Title:</label>
         <input

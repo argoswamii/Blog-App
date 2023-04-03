@@ -6,6 +6,11 @@ const cors = require("cors");
 var bodyParser = require("body-parser");
 const route = require("./routes/blogroute.js");
 
+app.use((err, req, res, next) => {
+  console.error(err.stack);
+  res.status(500).send("Something broke!");
+});
+
 app.use(cors());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
