@@ -19,7 +19,8 @@ app.use("/blog", route);
 
 mongoose
   .connect(
-    "mongodb+srv://abhishek:abhishek@cluster0.hxiivnt.mongodb.net/?retryWrites=true&w=majority"
+    "mongodb+srv://abhishek:abhishek@cluster0.hxiivnt.mongodb.net/?retryWrites=true&w=majority",
+    { useNewUrlParser: true, useUnifiedTopology: true }
   )
   .then(() => {
     console.log("DB connection is sucessful");
