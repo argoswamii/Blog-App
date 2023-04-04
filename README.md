@@ -2,11 +2,10 @@
 
 This project with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
 
 # Project Directory
 
- # client side - Frontend
+client side - Frontend
     In the project directory
     # Available Scripts
     
