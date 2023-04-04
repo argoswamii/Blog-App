@@ -7,6 +7,7 @@ var bodyParser = require("body-parser");
 const route = require("./routes/blogroute.js");
 
 app.use((err, req, res, next) => {
+  res.res(<h1>hello</h1>);
   console.error(err.stack);
   res.status(500).send("Something broke!");
 });
