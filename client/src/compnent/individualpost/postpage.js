@@ -17,7 +17,7 @@ const PostDetails = (props) => {
     e.preventDefault();
     try {
       const response = await axios.post(
-        `http://localhost:5000/blog/posts/${post._id}`,
+        `https://argoswami-blog.onrender.com/blog/posts/${post._id}`,
         { comment }
       );
       console.log("Comment added:", response.data);
@@ -31,7 +31,7 @@ const PostDetails = (props) => {
   useEffect(() => {
     const fetchData = async () => {
       const result = await axios.get(
-        `http://localhost:5000/blog/posts/${post._id}`
+        `https://argoswami-blog.onrender.com/blog/posts/${post._id}`
       );
       setPost(result.data);
     };
@@ -45,7 +45,7 @@ const PostDetails = (props) => {
   useEffect(() => {
     const fetchData = async () => {
       const result = await axios.get(
-        `http://localhost:5000/blog/posts/${postId}`
+        `https://argoswami-blog.onrender.com/blog/posts/${postId}`
       );
       setPost(result.data);
     };
