@@ -16,7 +16,7 @@ const PostDetails = (props) => {
   const handlesubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.put(
+      const response = await axios.post(
         `http://localhost:3000/blog/posts/${post._id}`,
         { comment }
       );
@@ -55,7 +55,7 @@ const PostDetails = (props) => {
   if (!post) {
     return <div>Loading...</div>;
   }
-
+  let date;
   return (
     <div>
       <Navigation />
@@ -69,19 +69,24 @@ const PostDetails = (props) => {
           <p>Tags: {post.tags && post.tags.join(", ")}</p>
           <p>Author: {post.author}</p>
           <p>
-            Date: <time dateTime={post.createdAt}>{post.createdAt}</time>
+            Date : {((date = new Date(post.createdAt)), date.toLocaleString())}
           </p>
-          <p>Comment: {post.comment}</p>
+          <p>Comment: {post.comment && post.comment.join(" , ")}</p>
         </footer>
         <div>
           <form onSubmit={handlesubmit}>
-            <label htmlFor="comment-input">Comment:</label>
+            <strong className="cmt-label" htmlFor="comment-input">
+              Comment :
+            </strong>
+            {"  "}
             <input
               id="comment-input"
               value={comment}
               onChange={(event) => setComment(event.target.value)}
             />
-            <button type="submit">Submit</button>
+            <button className="cmt" type="submit">
+              Submit
+            </button>
           </form>
         </div>
       </article>

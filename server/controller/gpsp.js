@@ -50,19 +50,40 @@ exports.getPostById = async (req, res) => {
 };
 
 // Update a post
+
+// exports.updatePost = async (req, res) => {
+//   const { id } = req.params;
+//   const { comment } = req.body;
+
+//   try {
+//     const updatedPost = await Post.findByIdAndUpdate(
+//       id,
+//       { comment },
+//       { new: true }
+//     );
+//     if (!updatedPost) {
+//       return res.status(404).json({ message: "Post not found" });
+//     }
+
+//     res.status(200).json(updatedPost);
+//   } catch (error) {
+//     res.status(500).json({ message: error.message });
+//   }
+// };
+
+////push comment
 exports.updatePost = async (req, res) => {
   const { id } = req.params;
   const { comment } = req.body;
 
   try {
-    const updatedPost = await Post.findByIdAndUpdate(
-      id,
-      { comment },
-      { new: true }
-    );
-    if (!updatedPost) {
+    const post = await Post.findById(id);
+    if (!post) {
       return res.status(404).json({ message: "Post not found" });
     }
+    post.comment.push(comment); // add the new comment to the comments array
+
+    const updatedPost = await post.save(); // save the updated post to the database
 
     res.status(200).json(updatedPost);
   } catch (error) {

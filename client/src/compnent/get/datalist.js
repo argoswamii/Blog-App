@@ -21,6 +21,7 @@ const PostList = () => {
     fetchPosts();
   }, []);
 
+  let date;
   return (
     <>
       <Navigation />
@@ -35,9 +36,13 @@ const PostList = () => {
             <p>{post.content}</p>
             <p className="tag">Tags : {post.tags}</p>
             <p className="author">Author : {post.author}</p>
-            <span className="date">Date : {post.createdAt}</span>
+            <span className="date">
+              {/* Date : {post.createdAt */}
+              Date :{" "}
+              {((date = new Date(post.createdAt)), date.toLocaleString())}
+            </span>
             <div>
-              <p>Comment : {post.comment}</p>
+              <p>Comment : {post.comment && post.comment.join(" , ")}</p>
             </div>
           </div>
         ))}

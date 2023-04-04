@@ -11,5 +11,6 @@ router.get("/posts", getPosts);
 router.post("/posts", createPost);
 router.get("/posts/:id", getPostById);
 router.put("/posts/:id", updatePost);
+router.post("/posts/:id", updatePost);
 
 module.exports = router;
