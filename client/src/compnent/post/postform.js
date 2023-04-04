@@ -21,7 +21,7 @@ const PostForm = () => {
 
     try {
       const response = await axios.post(
-        "http://localhost:3000/blog/posts",
+        "http://localhost:5000/blog/posts",
         post
       );
       console.log(response.data);

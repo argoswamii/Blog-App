@@ -1,7 +1,7 @@
 const express = require("express");
 const app = express();
 const mongoose = require("mongoose");
-const port = process.env.port || 3000;
+const port = process.env.port || 5000;
 const cors = require("cors");
 var bodyParser = require("body-parser");
 const route = require("./routes/blogroute.js");
@@ -18,7 +18,9 @@ app.use(bodyParser.json());
 app.use("/blog", route);
 
 mongoose
-  .connect("mongodb://localhost:27017/")
+  .connect(
+    "mongodb+srv://abhishek:abhishek@cluster0.hxiivnt.mongodb.net/?retryWrites=true&w=majority"
+  )
   .then(() => {
     console.log("DB connection is sucessful");
   })
