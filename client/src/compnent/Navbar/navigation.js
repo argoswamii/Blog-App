@@ -5,7 +5,7 @@ import "./nav.css";
 const Navigation = () => {
   const navigate = useNavigate();
   return (
-    <div className="container">
+    <div className="container-nav">
       <button className="btn" onClick={() => navigate("/")}>
         Home
       </button>

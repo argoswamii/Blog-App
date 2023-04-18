@@ -27,24 +27,44 @@ const PostList = () => {
   return (
     <>
       <Navigation />
-      <div className="post-list-container">
+      <div className="container">
         {posts.map((post) => (
           <div
-            className="post-card"
+            className="card"
             key={post._id}
             onClick={() => navigate(`/blogs/${post._id}`, { state: { post } })}
           >
-            <h2>{post.title}</h2>
-            <p>{post.content}</p>
-            <p className="tag">Tags : {post.tags}</p>
-            <p className="author">Author : {post.author}</p>
-            <span className="date">
-              {/* Date : {post.createdAt */}
-              Date :{" "}
-              {((date = new Date(post.createdAt)), date.toLocaleString())}
-            </span>
-            <div>
-              <p>Comment : {post.comment && post.comment.join(" , ")}</p>
+            <div class="card__header">
+              <img
+                src="https://source.unsplash.com/600x400/?computer"
+                alt="card__image"
+                class="card__image"
+                width="600"
+              />
+            </div>
+            <div className="card__body">
+              <span className="tag tag-blue">Tags : {post.tags}</span>
+              <h4>{post.title}</h4>
+              <p>{post.content}</p>
+              <small>
+                Comment : {post.comment && post.comment.join(" , ")}
+              </small>
+            </div>
+            <div class="card__footer">
+              <div class="user">
+                <img
+                  src="https://i.pravatar.cc/40?img=1"
+                  alt="user__image"
+                  class="user__image"
+                />
+                <div class="user__info">
+                  <h5> {post.author}</h5>
+                  <small>
+                    {" "}
+                    {((date = new Date(post.createdAt)), date.toLocaleString())}
+                  </small>
+                </div>
+              </div>
             </div>
           </div>
         ))}
