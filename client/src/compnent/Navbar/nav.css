@@ -1,4 +1,28 @@
 .container-nav {
+  width: 100vw;
+  display: grid;
+  grid-template-rows: auto auto;
+  grid-template-columns: 12.5rem 12.5rem;
+  align-items: center;
+  justify-content: space-around;
+  background-color: #264653;
+}
+
+.btn {
+  margin-top: 8px;
+  margin-bottom: 8px;
+  color: black;
+  background-color: antiquewhite;
+  display: inline-block;
+}
+
+.btn:hover {
+  background-color: #e9c46a;
+  color: #264653;
+}
+
+/* main */
+/* .container-nav {
   display: flex;
   max-width: 100%;
   justify-content: space-around;
@@ -11,4 +35,4 @@
   color: black;
   background-color: antiquewhite;
   display: inline-block;
-}
+} */
