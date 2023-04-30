@@ -1,8 +1,7 @@
 .container-nav {
-  width: 100vw;
   display: grid;
-  grid-template-rows: auto auto;
-  grid-template-columns: 12.5rem 12.5rem;
+  grid-template-rows: auto;
+  grid-template-columns: 8rem 8rem;
   align-items: center;
   justify-content: space-around;
   background-color: #264653;
