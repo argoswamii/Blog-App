@@ -4,17 +4,14 @@ import axios from "axios";
 import Navigation from "../Navbar/navigation";
 import "./post.css";
 
-const PostDetails = (props) => {
+const PostDetails = () => {
   const { state } = useLocation();
-  const postId = state.post._id;
-
+  const [post, setPost] = useState(state.post);
   const [comment, setComment] = useState("");
-  const [post, setPost] = useState(null);
-  const [refresh, setRefresh] = useState(false); // add state variable
-  console.log(comment);
+  const [refresh, setRefresh] = useState(false);
 
-  const handlesubmit = async (e) => {
-    e.preventDefault();
+  const handleSubmit = async (event) => {
+    event.preventDefault();
     try {
       const response = await axios.post(
         `https://argoswami-blog.onrender.com/blog/posts/${post._id}`,
@@ -22,35 +19,18 @@ const PostDetails = (props) => {
       );
       console.log("Comment added:", response.data);
       setComment("");
-      setRefresh(true); // update state variable
+      setPost(response.data);
+      setRefresh(true);
     } catch (error) {
       console.error("Error adding comment:", error);
     }
   };
 
   useEffect(() => {
-    const fetchData = async () => {
-      const result = await axios.get(
-        `https://argoswami-blog.onrender.com/blog/posts/${post._id}`
-      );
-      setPost(result.data);
-    };
     if (refresh) {
-      fetchData();
       setRefresh(false);
-      console.log("hello");
     }
-  }, [refresh]);
-
-  useEffect(() => {
-    const fetchData = async () => {
-      const result = await axios.get(
-        `https://argoswami-blog.onrender.com/blog/posts/${postId}`
-      );
-      setPost(result.data);
-    };
-    fetchData();
-  }, []);
+  }, [refresh, post]);
 
   if (!post) {
     return <div>Loading...</div>;
@@ -74,7 +54,7 @@ const PostDetails = (props) => {
           <p>Comment: {post.comment && post.comment.join(" , ")}</p>
         </footer>
         <div>
-          <form onSubmit={handlesubmit}>
+          <form onSubmit={handleSubmit}>
             <strong className="cmt-label" htmlFor="comment-input">
               Comment :
             </strong>
