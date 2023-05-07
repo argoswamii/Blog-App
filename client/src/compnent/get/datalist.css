@@ -67,3 +67,21 @@ img {
 .user__info > small {
   color: #666;
 }
+
+.comment {
+  font-size: 0.8em;
+  color: #666;
+}
+
+.comment::before {
+  content: "Comment: ";
+  font-weight: bold;
+}
+
+.comment::after {
+  content: attr(data-comment);
+}
+
+.comment:empty::after {
+  display: none;
+}

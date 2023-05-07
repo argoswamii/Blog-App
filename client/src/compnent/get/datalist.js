@@ -34,21 +34,21 @@ const PostList = () => {
             key={post._id}
             onClick={() => navigate(`/blogs/${post._id}`, { state: { post } })}
           >
-            <div class="card__header">
+            {/* <div class="card__header">
               <img
                 src="https://source.unsplash.com/600x400/?computer"
                 alt="card__image"
                 class="card__image"
                 width="600"
               />
-            </div>
+            </div> */}
             <div className="card__body">
-              <span className="tag tag-blue">Tags : {post.tags}</span>
               <h4>{post.title}</h4>
+              <span className="tag tag-blue">Tags : {post.tags}</span>
               <p>{post.content}</p>
-              <small>
+              {/* <small className="comment">
                 Comment : {post.comment && post.comment.join(" , ")}
-              </small>
+              </small> */}
             </div>
             <div class="card__footer">
               <div class="user">
