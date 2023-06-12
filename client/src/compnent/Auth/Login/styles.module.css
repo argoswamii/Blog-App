@@ -1,3 +1,4 @@
+/* responsive */
 .login_container {
   width: 100%;
   min-height: 100vh;
@@ -96,4 +97,88 @@
   background-color: #3bb19b;
   color: white;
   margin: 10px;
+}
+
+/* Media Queries */
+
+@media (max-width: 1200px) {
+  .login_form_container {
+    width: 700px;
+  }
+}
+
+@media (max-width: 992px) {
+  .login_form_container {
+    flex-direction: column;
+    height: auto;
+  }
+
+  .left,
+  .right {
+    border-radius: 10px;
+  }
+
+  .left {
+    border-bottom-left-radius: 0;
+  }
+
+  .right {
+    border-top-right-radius: 0;
+  }
+
+  .form_container {
+    margin-bottom: 20px;
+  }
+
+  .input,
+  .error_msg {
+    width: 100%;
+  }
+}
+
+@media (max-width: 768px) {
+  .login_form_container {
+    width: 500px;
+  }
+
+  .form_container h1 {
+    font-size: 30px;
+  }
+
+  .input,
+  .error_msg {
+    padding: 10px;
+    font-size: 12px;
+  }
+
+  .white_btn,
+  .green_btn {
+    padding: 10px 0;
+    width: 150px;
+    font-size: 12px;
+  }
+}
+
+@media (max-width: 576px) {
+  .login_form_container {
+    width: 90%;
+    max-width: 400px;
+  }
+
+  .form_container h1 {
+    font-size: 24px;
+  }
+
+  .input,
+  .error_msg {
+    width: 100%;
+    font-size: 10px;
+  }
+
+  .white_btn,
+  .green_btn {
+    padding: 8px 0;
+    width: 120px;
+    font-size: 10px;
+  }
 }
