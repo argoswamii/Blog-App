@@ -1,21 +1,14 @@
 import PostForm from "./compnent/post/postform";
 import Datalist from "./compnent/get/datalist";
 import Postpage from "./compnent/individualpost/postpage";
+import Login from "./compnent/Auth/Login/Login";
+import Register from "./compnent/Auth/Register/Register";
 // import Test from "./compnent/test";
-import {
-  BrowserRouter as Router,
-  Switch,
-  Route,
-  Routes,
-  Navigate,
-} from "react-router-dom";
+import { Route, Routes } from "react-router-dom";
 import "./App.css";
 
 //Auth
-import Home from "./compnent/Auth/Home/Home";
-import Login from "./compnent/Auth/Login/Login";
-import Register from "./compnent/Auth/Register/Register";
-import { useState } from "react";
+// import Home from "./compnent/Auth/Home/Home";
 
 function App() {
   return (
@@ -25,14 +18,15 @@ function App() {
         <Route path="/blogs" exact element={<PostForm />} />
         <Route path="/blogs/:id" exact element={<Postpage />} />
         {/* <Route path="/" exact element={<Test />} /> */}
-      </Routes>
-      {/* Auth */}
-      <Routes>
-        {/* <Route path="/" exact element={<Home />} /> */}
-        <Route path="/signup" exact element={<Register />} />
+        {/* Auth */}
+        <Route path="/register" exact element={<Register />} />
         <Route path="/login" exact element={<Login />} />
-        {/* <Route path="/" element={<Navigate replace to="/login" />} /> */}
       </Routes>
+      {/* <Routes> */}
+      {/* <Route path="/" exact element={<Home />} /> */}
+
+      {/* <Route path="/" element={<Navigate replace to="/login" />} /> */}
+      {/* </Routes> */}
     </div>
   );
 }
