@@ -1,8 +1,15 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
+import { Loginstatus } from "../../../Context";
+import styles from "./styles.module.css";
 
 const LoginForm = () => {
+  const { Setstatus } = useContext(Loginstatus);
+  const navigate = useNavigate();
+
+  console.log(useContext(Loginstatus));
   const [data, setData] = useState({ email: "", password: "" });
   const [error, setError] = useState("");
 
@@ -14,9 +21,12 @@ const LoginForm = () => {
     e.preventDefault();
     try {
       const url = "http://localhost:5000/blog/login";
-      const { data: res } = await axios.post(url, data);
-      localStorage.setItem("token", res.data);
-      window.location = "/";
+      const response = await axios.post(url, data);
+      const token = response.data;
+      localStorage.setItem("token", token);
+      // window.location = "/";
+      navigate("/");
+      Setstatus(true);
     } catch (error) {
       if (
         error.response &&
@@ -25,41 +35,50 @@ const LoginForm = () => {
       ) {
         setError(error.response.data.message);
       }
+      Setstatus(false);
     }
   };
 
   return (
-    <>
-      <form onSubmit={handleSubmit}>
-        <h2>Login</h2>
-        <label htmlFor="email">Email:</label>
-        <input
-          type="email"
-          placeholder="Email"
-          name="email"
-          onChange={handleChange}
-          value={data.email}
-          required
-        />
-        <label htmlFor="password">Password:</label>
-        <input
-          type="password"
-          placeholder="Password"
-          name="password"
-          onChange={handleChange}
-          value={data.password}
-          required
-        />
-        {error && <div>{error}</div>}
-        <button type="submit">Login</button>
-      </form>
-      <div>
-        <h1>New Here ?</h1>
-        <Link to="/register">
-          <button type="button">Sing Up</button>
-        </Link>
+    <div className={styles.login_container}>
+      <div className={styles.login_form_container}>
+        <div className={styles.left}>
+          <form className={styles.form_container} onSubmit={handleSubmit}>
+            <h1>Login to Your Account</h1>
+            <input
+              className={styles.input}
+              type="email"
+              placeholder="Email"
+              name="email"
+              onChange={handleChange}
+              value={data.email}
+              required
+            />
+            <input
+              className={styles.input}
+              type="password"
+              placeholder="Password"
+              name="password"
+              onChange={handleChange}
+              value={data.password}
+              required
+            />
+            {error && <div className={styles.error_msg}>{error}</div>}
+            <button className={styles.green_btn} type="submit">
+              Login
+            </button>
+          </form>
+        </div>
+        <div className={styles.right}>
+          <h1>New Here ?</h1>
+          <Link to="/register">
+            <button className={styles.white_btn} type="button">
+              Sing Up
+            </button>
+          </Link>
+        </div>
       </div>
-    </>
+    </div>
   );
 };
 

@@ -1,31 +1,26 @@
 .container-nav {
-  display: grid;
-  grid-template-rows: auto;
-  grid-template-columns: 8rem 8rem;
-  align-items: center;
+  display: flex;
   justify-content: space-around;
+  align-items: center;
   background-color: #264653;
+  padding: 10px;
 }
 
 .btn {
-  margin-top: 8px;
-  margin-bottom: 8px;
-  color: black;
-  background-color: antiquewhite;
-  display: inline-block;
+  padding: 10px 20px;
+  margin-right: 10px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  cursor: pointer;
 }
 
 .btn:hover {
-  background-color: #e9c46a;
-  color: #264653;
+  background-color: #0056b3;
 }
 
-/* main */
-/* .container-nav {
-  display: flex;
-  max-width: 100%;
-  justify-content: space-around;
-  background-color: #264653;
+.logout-btn {
+  background-color: #dc3545;
 }
 
 .btn {
@@ -34,4 +29,4 @@
   color: black;
   background-color: antiquewhite;
   display: inline-block;
-} */
+}
