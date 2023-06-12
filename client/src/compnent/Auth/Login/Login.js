@@ -20,7 +20,7 @@ const LoginForm = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const url = "http://localhost:5000/blog/login";
+      const url = "https://argoswami-blog.onrender.com/blog/login";
       const response = await axios.post(url, data);
       const token = response.data;
       localStorage.setItem("token", token);

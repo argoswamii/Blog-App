@@ -18,7 +18,7 @@ const SignupForm = () => {
     };
     try {
       const response = await axios.post(
-        "http://localhost:5000/blog/singup",
+        "https://argoswami-blog.onrender.com/blog/singup",
         user
       );
       console.log(response.data);
